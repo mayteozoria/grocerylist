@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
-
+import Nav from '@/components/Nav'
 import AddFood from '../components/AddFood'
 import { React, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { HiOutlineTrash, HiPencilAlt } from 'react-icons/hi'
+import { HiOutlineTrash } from 'react-icons/hi'
+import { useSession } from 'next-auth/react'
 
 export async function getServerSideProps(context) {
   try {
@@ -26,11 +27,11 @@ export async function getServerSideProps(context) {
 
 export default function Food({ foods }) {
   const [food, setFood] = useState('')
+  const { data: session, status } = useSession()
 
   const router = useRouter()
 
   const removeFood = async (id) => {
-    // try {
     const res = await fetch(`api/deleteFood?id=${id}`, {
       method: 'DELETE',
       headers: {
@@ -45,6 +46,7 @@ export default function Food({ foods }) {
 
   return (
     <div>
+      <Nav />
       <Head>
         <title>Fridge</title>
         <link rel="icon" href="fridge.png" sizes="any" />
