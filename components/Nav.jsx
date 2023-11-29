@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import BtnLogin from '../components/BtnLogin'
 
-export default function Nav() {
+const Nav = () => {
   return (
     <nav className="flex justify-between items-center  p-6">
       <Link
@@ -14,3 +14,4 @@ export default function Nav() {
     </nav>
   )
 }
+export default Nav

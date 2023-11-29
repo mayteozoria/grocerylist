@@ -1,18 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import bag from '../public/bag.png'
-import { IoIosArrowRoundBack } from 'react-icons/io'
+// import { IoIosArrowRoundBack } from 'react-icons/io'
 
 export default function About() {
   return (
-    <>
+    <div>
       <nav>
         <Link
           className="font-rocknRollOne font-bold text-3xl text-left"
           href="/"
         >
           <h2>Home</h2>
-          <IoIosArrowRoundBack />
+          {/* <IoIosArrowRoundBack /> */}
         </Link>
       </nav>
 
@@ -35,6 +35,6 @@ export default function About() {
           </p>
         </div>
       </body>
-    </>
+    </div>
   )
 }
